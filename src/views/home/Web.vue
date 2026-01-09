@@ -1,59 +1,62 @@
 <template>
-  <div class="app-container">
+  <div class="app-container site-shell">
     <swiper :no-swiping="true" direction="vertical" :modules="modules" :mousewheel="{ mousewheel: true }" @swiper="onSwiper">
       <swiper-slide>
         <div class="item">
           <div class="bg-slide bg-slide-1"></div>
           <div class="h-screen mx-auto flex flex-col justify-between">
-            <div class="pt-24px">
-              <img src="@/assets/image/home/logo.png" class="w-255px" />
+            <div class="pt-24px flex items-center justify-between px-80px">
+              <img src="@/assets/image/home/logo.png" class="w-220px drop-shadow-lg" />
+              <div class="hero-pill">云端手机</div>
             </div>
-            <div class="flex flex-col items-center text-black">
-              <p class="text-40px font-bold mb-18px">您的另一台云端手机</p>
-              <p class="text-20px">智能托管 批量操作</p>
-              <div class="flex-center mt-30px">
-                <img src="@/assets/image/home/slide-1-1.png" alt="" class="w-188px" />
-                <img src="@/assets/image/home/slide-1-2.png" alt="" class="w-750px mx-40px" />
-                <img src="@/assets/image/home/slide-1-3.png" alt="" class="w-188px" />
+            <div class="flex flex-col items-center text-black hero">
+              <p class="hero-title">云端手机，像拥有另一台设备</p>
+              <p class="hero-subtitle">轻量托管 · 多开稳定 · 秒级启动</p>
+              <div class="flex-center mt-36px">
+                <img src="@/assets/image/home/slide-1-1.png" alt="" class="w-188px hero-image" />
+                <img src="@/assets/image/home/slide-1-2.png" alt="" class="w-750px mx-40px hero-image-main" />
+                <img src="@/assets/image/home/slide-1-3.png" alt="" class="w-188px hero-image" />
               </div>
-              <div class="flex mt-28px ml-30px">
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center" @click="download(1)">
+              <div class="flex mt-32px ml-30px hero-actions">
+                <button class="download-card" @click="download(1)">
                   <img src="@/assets/image/home/icon-pc.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
+                  <div>
                     <p class="text-16px mb-4px">电脑版下载</p>
+                    <p class="text-12px opacity-80">Windows / macOS</p>
                   </div>
-                </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center mx-30px" @click="download(2)">
+                </button>
+                <button class="download-card mx-30px" @click="download(2)">
                   <img src="@/assets/image/home/icon-android.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
+                  <div>
                     <p class="text-16px mb-4px">安卓下载</p>
-                    <!-- <p class="text-12px">版本1.3.9 2024-09-19</p> -->
+                    <p class="text-12px opacity-80">官方版本</p>
                   </div>
-                </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center mr-30px" @click="download(2)">
+                </button>
+                <button class="download-card mr-30px" @click="download(5)">
                   <img src="@/assets/image/home/icon-android-test.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px mb-4px">安卓测试版下载</p>
-                    <!-- <p class="text-12px">版本1.3.9 2024-09-19</p> -->
+                  <div>
+                    <p class="text-16px mb-4px">安卓测试版</p>
+                    <p class="text-12px opacity-80">尝鲜体验</p>
                   </div>
-                </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center" @click="download(2)">
+                </button>
+                <button class="download-card" @click="download(3)">
                   <img src="@/assets/image/home/icon-ios.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px mb-4px">App Store下载</p>
-                    <!-- <p class="text-12px">版本1.3.9 2024-09-19</p> -->
+                  <div>
+                    <p class="text-16px mb-4px">App Store</p>
+                    <p class="text-12px opacity-80">iOS 版本</p>
                   </div>
-                </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center ml-30px" @click="download(2)">
+                </button>
+                <button class="download-card ml-30px" @click="download(4)">
                   <img src="@/assets/image/home/icon-hw.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px">华为专用</p>
+                  <div>
+                    <p class="text-16px mb-4px">华为专用</p>
+                    <p class="text-12px opacity-80">HarmonyOS</p>
                   </div>
-                </div>
+                </button>
               </div>
             </div>
-            <div class="mt-44px flex flex-col items-center pb-24px">
-              <p class="text-16px">向下滑动查看更多</p>
+            <div class="mt-44px flex flex-col items-center pb-24px text-slate-600">
+              <p class="text-14px tracking-1px">向下滑动查看更多</p>
               <img src="@/assets/image/home/icon-down.png" alt="" class="w-32px mt-24px bouncy" />
             </div>
             <div v-if="anocementEntry" class="absolute top-202px right-0px">
@@ -66,15 +69,15 @@
         <div class="item">
           <div class="bg-slide bg-slide-2"></div>
           <div class="max-w-1280px mx-auto h-screen flex">
-            <img src="@/assets/image/home/slide-2-1.png" alt="" class="w-440px h-430px mt-260px" />
+            <img src="@/assets/image/home/slide-2-1.png" alt="" class="w-440px h-430px mt-260px hero-card" />
             <div class="flex flex-col justify-between">
-              <img src="@/assets/image/home/slide-2-2.png" alt="" class="w-360px h-450px mt-64px ml-40px mr-120px" />
-              <div class="flex flex-col items-center pb-24px">
-                <p class="text-16px">向下滑动查看更多</p>
+              <img src="@/assets/image/home/slide-2-2.png" alt="" class="w-360px h-450px mt-64px ml-40px mr-120px hero-card" />
+              <div class="flex flex-col items-center pb-24px text-slate-600">
+                <p class="text-14px tracking-1px">向下滑动查看更多</p>
                 <img src="@/assets/image/home/icon-down.png" alt="" class="w-32px mt-24px bouncy" />
               </div>
             </div>
-            <img src="@/assets/image/home/slide-2-3.png" alt="" class="w-360px h-450px mt-260px" />
+            <img src="@/assets/image/home/slide-2-3.png" alt="" class="w-360px h-450px mt-260px hero-card" />
           </div>
         </div>
       </swiper-slide>
@@ -83,22 +86,22 @@
           <div class="bg-slide bg-slide-3"></div>
           <div class="max-w-1280px mx-auto h-screen flex flex-col items-center justify-between">
             <div class="flex flex-col items-center">
-              <p class="text-32px font-bold mt-64px">品牌实力</p>
-              <p class="text-40px font-bold mt-44px mb-36px">云端托管，支持多开</p>
-              <p class="text-20px">为您打造，为您而变，欢迎加入</p>
+              <p class="text-14px tracking-2px text-slate-500 mt-64px">品牌实力</p>
+              <p class="text-40px font-semibold mt-32px mb-24px">云端托管，稳定多开</p>
+              <p class="text-20px text-slate-600">为专业用户打造的可靠平台</p>
             </div>
             <div class="text-16px flex-center mt-100px">
-              <div class="w-300px h-350px bg-[#FAFAFA] rounded-20px flex flex-col items-center justify-center">
+              <div class="w-300px h-350px brand-card flex flex-col items-center justify-center">
                 <img src="@/assets/image/home/slide-3-1.png" alt="" class="mb-40px" />
                 <p>官方Q群</p>
               </div>
-              <div class="w-300px h-350px bg-[#FAFAFA] rounded-20px mx-100px flex flex-col items-center justify-center">
+              <div class="w-300px h-350px brand-card mx-100px flex flex-col items-center justify-center">
                 <img src="@/assets/image/home/slide-3-2.png" alt="" class="mb-40px" />
                 <p>代理合作</p>
               </div>
-              <div class="w-300px h-350px bg-[#FAFAFA] rounded-20px flex flex-col items-center justify-center">
+              <div class="w-300px h-350px brand-card flex flex-col items-center justify-center">
                 <img src="@/assets/image/home/slide-3-3.png" alt="" class="mb-40px" />
-                <p class="download-bg w-168px h-48px text-white flex-center cursor-pointer" @click="toQQ">QQ在线客服</p>
+                <button class="ghost-button" @click="toQQ">QQ在线客服</button>
               </div>
             </div>
             <div class="w-screen flex flex-col justify-center text-13px pb-30px">
@@ -203,6 +206,10 @@ const showAnocement = () => {
   width: 100%;
   height: 100vh;
 }
+.site-shell {
+  font-family: 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #0f172a;
+}
 .item {
   width: 100%;
   height: 100%;
@@ -223,6 +230,7 @@ const showAnocement = () => {
   height: 100vh;
   position: absolute;
   z-index: -1;
+  filter: saturate(1.05);
 }
 .bg-slide-1 {
   background: url(@/assets/image/home/bg-slide-1.png) no-repeat;
@@ -274,8 +282,79 @@ const showAnocement = () => {
 .z99 {
   z-index: 9999999999;
 }
-.download-bg {
-  background: linear-gradient(90deg, #ff2120 0%, #ff5b5a 100%), #3f7fff;
-  border-radius: 6px;
+.hero {
+  text-align: center;
+}
+.hero-pill {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.hero-title {
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: #475569;
+}
+.hero-image {
+  filter: drop-shadow(0 20px 50px rgba(15, 23, 42, 0.12));
+}
+.hero-image-main {
+  filter: drop-shadow(0 30px 60px rgba(15, 23, 42, 0.18));
+}
+.hero-actions {
+  flex-wrap: nowrap;
+}
+.download-card {
+  width: 210px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.9);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.download-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.2);
+}
+.hero-card {
+  border-radius: 20px;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.18);
+}
+.brand-card {
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px);
+}
+.ghost-button {
+  width: 168px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ghost-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
 }
 </style>
