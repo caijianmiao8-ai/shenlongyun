@@ -1,60 +1,37 @@
 <template>
-  <div class="app-container">
+  <div class="app-container site-shell">
     <swiper :no-swiping="true" direction="vertical" :modules="modules" :mousewheel="{ mousewheel: true }" @swiper="onSwiper">
       <swiper-slide>
         <div class="item">
           <div class="bg-slide bg-slide-1"></div>
-          <div class="h-screen mx-auto flex flex-col justify-between">
-            <div class="pt-24px">
-              <img src="@/assets/image/home/logo.png" class="w-255px" />
-            </div>
-            <div class="flex flex-col items-center text-black">
-              <p class="text-40px font-bold mb-18px">您的另一台云端手机</p>
-              <p class="text-20px">智能托管 批量操作</p>
-              <div class="flex-center mt-30px">
-                <img src="@/assets/image/home/slide-1-1.png" alt="" class="w-188px" />
-                <img src="@/assets/image/home/slide-1-2.png" alt="" class="w-750px mx-40px" />
-                <img src="@/assets/image/home/slide-1-3.png" alt="" class="w-188px" />
-              </div>
-              <div class="flex mt-28px ml-30px">
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center" @click="download(1)">
-                  <img src="@/assets/image/home/icon-pc.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px mb-4px">电脑版下载</p>
-                  </div>
+          <div class="h-screen mx-auto flex flex-col justify-between page-shell">
+            <header class="top-bar">
+              <img src="@/assets/image/home/logo.png" class="brand-logo" />
+              <div class="brand-tag">高性能云端手机</div>
+            </header>
+            <section class="hero-grid">
+              <div class="hero-copy">
+                <p class="hero-eyebrow">SHENLONG CLOUD</p>
+                <h1 class="hero-title">把另一台手机，放进云端</h1>
+                <p class="hero-subtitle">极简上手 · 稳定多开 · 全平台覆盖</p>
+                <div class="hero-actions">
+                  <button class="primary-button" @click="download(3)">App Store</button>
+                  <button class="secondary-button" @click="download(2)">安卓下载</button>
+                  <button class="ghost-button" @click="download(1)">电脑版</button>
                 </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center mx-30px" @click="download(2)">
-                  <img src="@/assets/image/home/icon-android.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px mb-4px">安卓下载</p>
-                    <!-- <p class="text-12px">版本1.3.9 2024-09-19</p> -->
-                  </div>
-                </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center mr-30px" @click="download(2)">
-                  <img src="@/assets/image/home/icon-android-test.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px mb-4px">安卓测试版下载</p>
-                    <!-- <p class="text-12px">版本1.3.9 2024-09-19</p> -->
-                  </div>
-                </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center" @click="download(2)">
-                  <img src="@/assets/image/home/icon-ios.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px mb-4px">App Store下载</p>
-                    <!-- <p class="text-12px">版本1.3.9 2024-09-19</p> -->
-                  </div>
-                </div>
-                <div class="w-200px h-52px cursor-pointer download-bg flex-center ml-30px" @click="download(2)">
-                  <img src="@/assets/image/home/icon-hw.png" alt="" class="w-24px mr-12px" />
-                  <div class="text-white">
-                    <p class="text-16px">华为专用</p>
-                  </div>
+                <div class="download-row">
+                  <button class="download-chip" @click="download(5)">安卓测试版</button>
+                  <button class="download-chip" @click="download(4)">华为专用</button>
                 </div>
               </div>
-            </div>
-            <div class="mt-44px flex flex-col items-center pb-24px">
-              <p class="text-16px">向下滑动查看更多</p>
-              <img src="@/assets/image/home/icon-down.png" alt="" class="w-32px mt-24px bouncy" />
+              <div class="hero-visual">
+                <div class="device-glow"></div>
+                <img src="@/assets/image/home/slide-1-2.png" alt="" class="hero-device" />
+              </div>
+            </section>
+            <div class="mt-24px flex flex-col items-center pb-28px scroll-hint">
+              <p class="text-12px tracking-2px">向下滑动查看更多</p>
+              <img src="@/assets/image/home/icon-down.png" alt="" class="w-32px mt-18px bouncy" />
             </div>
             <div v-if="anocementEntry" class="absolute top-202px right-0px">
               <img src="@/assets/image/home/anocement.png" alt="" class="w-110px h-140px cursor-pointer" @click="showAnocement" />
@@ -65,40 +42,58 @@
       <swiper-slide>
         <div class="item">
           <div class="bg-slide bg-slide-2"></div>
-          <div class="max-w-1280px mx-auto h-screen flex">
-            <img src="@/assets/image/home/slide-2-1.png" alt="" class="w-440px h-430px mt-260px" />
-            <div class="flex flex-col justify-between">
-              <img src="@/assets/image/home/slide-2-2.png" alt="" class="w-360px h-450px mt-64px ml-40px mr-120px" />
-              <div class="flex flex-col items-center pb-24px">
-                <p class="text-16px">向下滑动查看更多</p>
-                <img src="@/assets/image/home/icon-down.png" alt="" class="w-32px mt-24px bouncy" />
+          <div class="max-w-1280px mx-auto h-screen flex section-grid">
+            <div class="feature-stack">
+              <p class="section-title">稳定托管 · 即刻体验</p>
+              <p class="section-subtitle">轻松上手的云端设备管理</p>
+              <div class="feature-list">
+                <div class="feature-card">
+                  <p class="feature-title">秒级启动</p>
+                  <p class="feature-desc">一键开启云端手机，保持稳定在线。</p>
+                </div>
+                <div class="feature-card">
+                  <p class="feature-title">多开托管</p>
+                  <p class="feature-desc">多设备同步运行，效率与稳定兼顾。</p>
+                </div>
+                <div class="feature-card">
+                  <p class="feature-title">跨端协作</p>
+                  <p class="feature-desc">桌面与移动端协同操作，随时切换。</p>
+                </div>
               </div>
             </div>
-            <img src="@/assets/image/home/slide-2-3.png" alt="" class="w-360px h-450px mt-260px" />
+            <div class="feature-visual">
+              <img src="@/assets/image/home/slide-2-2.png" alt="" class="feature-image" />
+              <div class="floating-image">
+                <img src="@/assets/image/home/slide-2-3.png" alt="" class="feature-image-small" />
+              </div>
+            </div>
           </div>
         </div>
       </swiper-slide>
       <swiper-slide>
         <div class="item">
           <div class="bg-slide bg-slide-3"></div>
-          <div class="max-w-1280px mx-auto h-screen flex flex-col items-center justify-between">
-            <div class="flex flex-col items-center">
-              <p class="text-32px font-bold mt-64px">品牌实力</p>
-              <p class="text-40px font-bold mt-44px mb-36px">云端托管，支持多开</p>
-              <p class="text-20px">为您打造，为您而变，欢迎加入</p>
+          <div class="max-w-1280px mx-auto h-screen flex flex-col justify-between section-footer">
+            <div class="flex flex-col items-center mt-90px">
+              <p class="section-title">专业团队 · 品质服务</p>
+              <p class="section-subtitle">值得信赖的云端手机品牌</p>
             </div>
-            <div class="text-16px flex-center mt-100px">
-              <div class="w-300px h-350px bg-[#FAFAFA] rounded-20px flex flex-col items-center justify-center">
-                <img src="@/assets/image/home/slide-3-1.png" alt="" class="mb-40px" />
-                <p>官方Q群</p>
+            <div class="service-grid">
+              <div class="service-card">
+                <img src="@/assets/image/home/slide-3-1.png" alt="" class="mb-24px" />
+                <p class="service-title">官方社群</p>
+                <p class="service-desc">第一时间获取产品资讯与更新。</p>
               </div>
-              <div class="w-300px h-350px bg-[#FAFAFA] rounded-20px mx-100px flex flex-col items-center justify-center">
-                <img src="@/assets/image/home/slide-3-2.png" alt="" class="mb-40px" />
-                <p>代理合作</p>
+              <div class="service-card">
+                <img src="@/assets/image/home/slide-3-2.png" alt="" class="mb-24px" />
+                <p class="service-title">合作伙伴</p>
+                <p class="service-desc">开放合作通道，携手共赢。</p>
               </div>
-              <div class="w-300px h-350px bg-[#FAFAFA] rounded-20px flex flex-col items-center justify-center">
-                <img src="@/assets/image/home/slide-3-3.png" alt="" class="mb-40px" />
-                <p class="download-bg w-168px h-48px text-white flex-center cursor-pointer" @click="toQQ">QQ在线客服</p>
+              <div class="service-card">
+                <img src="@/assets/image/home/slide-3-3.png" alt="" class="mb-24px" />
+                <p class="service-title">在线客服</p>
+                <p class="service-desc">工作日 9:00 - 21:00 在线支持。</p>
+                <button class="primary-button" @click="toQQ">立即咨询</button>
               </div>
             </div>
             <div class="w-screen flex flex-col justify-center text-13px pb-30px">
@@ -203,6 +198,11 @@ const showAnocement = () => {
   width: 100%;
   height: 100vh;
 }
+.site-shell {
+  font-family: 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #0f172a;
+  background: #f7f7f8;
+}
 .item {
   width: 100%;
   height: 100%;
@@ -223,18 +223,19 @@ const showAnocement = () => {
   height: 100vh;
   position: absolute;
   z-index: -1;
+  filter: saturate(1.05);
 }
 .bg-slide-1 {
-  background: url(@/assets/image/home/bg-slide-1.png) no-repeat;
-  background-size: cover;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.9), transparent 55%),
+    linear-gradient(135deg, #f6f7fb 0%, #e7edf6 40%, #f9f9fb 100%);
 }
 .bg-slide-2 {
-  background: url(@/assets/image/home/bg-slide-2.png) no-repeat;
-  background-size: cover;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(135deg, #f6f8fb 0%, #edf1f7 45%, #f8f9fb 100%);
 }
 .bg-slide-3 {
-  background: url(@/assets/image/home/bg-slide-3.png) no-repeat;
-  background-size: cover;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.8), transparent 55%),
+    linear-gradient(135deg, #f8f9fb 0%, #eef1f7 45%, #f6f7fb 100%);
 }
 .title {
   width: 100%;
@@ -274,8 +275,216 @@ const showAnocement = () => {
 .z99 {
   z-index: 9999999999;
 }
-.download-bg {
-  background: linear-gradient(90deg, #ff2120 0%, #ff5b5a 100%), #3f7fff;
-  border-radius: 6px;
+.page-shell {
+  padding: 0 96px;
+}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+}
+.brand-logo {
+  width: 200px;
+}
+.brand-tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  margin-top: 30px;
+}
+.hero-copy {
+  max-width: 520px;
+}
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #94a3b8;
+  margin-bottom: 18px;
+}
+.hero-title {
+  font-size: 54px;
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: #64748b;
+  margin-bottom: 32px;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.primary-button {
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  border: none;
+  background: #0f172a;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.22);
+}
+.secondary-button {
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(255, 255, 255, 0.85);
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+.ghost-button {
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: transparent;
+  color: #334155;
+  font-weight: 600;
+  cursor: pointer;
+}
+.download-row {
+  display: flex;
+  gap: 14px;
+}
+.download-chip {
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(255, 255, 255, 0.7);
+  color: #475569;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.device-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.18), transparent 70%);
+  filter: blur(10px);
+}
+.hero-device {
+  width: 520px;
+  filter: drop-shadow(0 40px 80px rgba(15, 23, 42, 0.25));
+}
+.scroll-hint {
+  color: #94a3b8;
+}
+.section-grid {
+  align-items: center;
+  gap: 80px;
+}
+.feature-stack {
+  padding-left: 20px;
+}
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.section-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 32px;
+}
+.feature-list {
+  display: grid;
+  gap: 18px;
+}
+.feature-card {
+  padding: 22px 26px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+.feature-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.feature-desc {
+  font-size: 13px;
+  color: #64748b;
+}
+.feature-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.feature-image {
+  width: 360px;
+  border-radius: 26px;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.18);
+}
+.floating-image {
+  position: absolute;
+  right: -40px;
+  bottom: -30px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 14px;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+}
+.feature-image-small {
+  width: 200px;
+}
+.section-footer {
+  padding: 0 24px 40px;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0 40px;
+}
+.service-card {
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.1);
+  text-align: left;
+}
+.service-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.service-desc {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;
 }
 </style>
