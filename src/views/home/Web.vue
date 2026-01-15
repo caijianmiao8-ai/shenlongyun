@@ -240,17 +240,18 @@ const showAnocement = () => {
   width: 100%;
   height: 68px;
   font-size: 24px;
-  color: #3d3d3d;
+  color: #C94A4A;
   font-weight: bolder;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  border-bottom: 1px solid #FDE8E8;
   span {
     display: inline-block;
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     font-size: 16px;
     font-weight: normal;
     cursor: pointer;
@@ -258,6 +259,16 @@ const showAnocement = () => {
     right: 20px;
     top: 20px;
     transform: scaleX(1.2);
+    color: #999;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    &:hover {
+      background: #FEF2F2;
+      color: #C94A4A;
+    }
   }
 }
 .info {
@@ -275,7 +286,14 @@ const showAnocement = () => {
   z-index: 9999999999;
 }
 .download-bg {
-  background: linear-gradient(90deg, #ff2120 0%, #ff5b5a 100%), #3f7fff;
-  border-radius: 6px;
+  background: linear-gradient(135deg, #C94A4A 0%, #E87070 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(201, 74, 74, 0.3);
+  transition: all 0.3s ease;
+}
+.download-bg:hover {
+  background: linear-gradient(135deg, #A53A3A 0%, #C94A4A 100%);
+  box-shadow: 0 6px 16px rgba(201, 74, 74, 0.4);
+  transform: translateY(-2px);
 }
 </style>

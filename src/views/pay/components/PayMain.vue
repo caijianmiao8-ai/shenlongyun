@@ -13,8 +13,8 @@
         <li
           v-for="(tab, index) in state.pkgList"
           :key="index"
-          class="h-40px flex-center cursor-pointer relative"
-          :class="getTabClasses(index, tabActive, state.pkgList.length)"
+          class="h-40px flex-center cursor-pointer relative transition-all"
+          :class="[...getTabClasses(index, tabActive, state.pkgList.length), tabActive === index ? 'text-white' : 'text-black333']"
           @click="tabChange(index, tab)"
         >
           <img v-if="tab.product_name_type === 2" :src="tab.product_name_url" alt="" class="h-16px" :class="`w-${tab.width}px`" />
@@ -203,23 +203,23 @@ onBeforeMount(() => {
     background-size: contain;
   }
   .tab-bg-active-left {
-    background: url('https://reso.dalongyun.com/yun/dalongyun_page/webRtc/dlyphoneWeb/pay/left-active.png') no-repeat;
-    background-size: contain;
+    background: linear-gradient(135deg, #C94A4A 0%, #E87070 100%);
+    border-radius: 18px 0 0 0;
   }
   .tab-bg-active-right {
-    background: url('https://reso.dalongyun.com/yun/dalongyun_page/webRtc/dlyphoneWeb/pay/right-active.png') no-repeat;
-    background-size: contain;
+    background: linear-gradient(135deg, #C94A4A 0%, #E87070 100%);
+    border-radius: 0 18px 0 0;
   }
   .tab-bg-active-center {
-    background: url('https://reso.dalongyun.com/yun/dalongyun_page/webRtc/dlyphoneWeb/pay/center-active.png') no-repeat;
-    background-size: contain;
+    background: linear-gradient(135deg, #C94A4A 0%, #E87070 100%);
   }
   .activity-item-active-bg {
-    background: linear-gradient(180deg, #fff0d3 0%, #fdfde9 100%);
-    border: 1px solid #ffa12e;
+    background: linear-gradient(180deg, #FEF2F2 0%, #FDE8E8 100%);
+    border: 2px solid #C94A4A !important;
+    box-shadow: 0 4px 12px rgba(201, 74, 74, 0.2);
   }
   .activity-item-base-bg {
-    background: linear-gradient(180deg, #fff4f4 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #FEF2F2 0%, #ffffff 100%);
   }
 }
 .content-box {
@@ -230,20 +230,28 @@ onBeforeMount(() => {
   width: 10%;
 }
 .box-left-active {
-  background-color: #e4e4e4;
+  background: linear-gradient(180deg, #FEF2F2 0%, #FDE8E8 100%);
+  border: 1px solid #FACACB;
   font-weight: 600;
+  color: #C94A4A;
 }
 .box-tag {
   width: 90%;
-  display: grid; /* 使用 grid 布局 */
-  place-items: center; /* 垂直和水平居中 */
-  height: 40px; /* 设置高度 */
-  border-radius: 8px; /* 设置圆角，可以根据需要调整值 */
+  display: grid;
+  place-items: center;
+  height: 40px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    background: #FEF2F2;
+  }
 }
 .box-right {
   background-color: #ffffff;
   padding-left: 10px;
   width: 80%;
   display: table-cell;
+  border-radius: 0 12px 12px 12px;
 }
 </style>

@@ -7,7 +7,7 @@
           <img :src="`${VITE_PREFIXURL}/pay/icon-success.png`" alt="" class="w-60px h-60px" />
           <p class="text-18px font-bold mt-12px mb-12px">支付成功</p>
           <p class="text-14px leading-20px text-center">本次订单已支付成功，可返回首页进行查看</p>
-          <p class="w-120px h-40px rounded-6px bg-blue text-14px text-white flex-center mt-24px" @click="toYphoneHome">回到首页</p>
+          <p class="w-120px h-40px rounded-8px bg-primary hover:bg-primary-dark text-14px text-white flex-center mt-24px cursor-pointer transition-colors" @click="toYphoneHome">回到首页</p>
         </div>
       </div>
       <div v-if="[0].includes(orderStatus)" class="w-304px h-290px bg-white pt-44px pb-38px flex-center relative rounded-2px shadow-sm">
@@ -16,7 +16,7 @@
           <img :src="`${VITE_PREFIXURL}/pay/icon-error.png`" alt="" class="w-60px h-60px" />
           <p class="text-18px font-bold mt-12px mb-12px">支付失败</p>
           <p class="text-14px leading-20px text-center">请重新下单，再次尝试</p>
-          <p class="w-120px h-40px rounded-6px bg-blue text-14px text-white flex-center mt-24px cursor-pointer" @click="payAgain">重新支付</p>
+          <p class="w-120px h-40px rounded-8px bg-primary hover:bg-primary-dark text-14px text-white flex-center mt-24px cursor-pointer transition-colors" @click="payAgain">重新支付</p>
         </div>
       </div>
       <div
@@ -43,7 +43,7 @@
             <p>{{ props.dialogData.orderSn }}</p>
             <div class="mt-33px text-right">
               <p class="text-black666 mb-16px">订单总价</p>
-              <p class="text-redF35 tet-24px font-bold">
+              <p class="text-primary text-24px font-bold">
                 ￥<span class="text-32px">{{ (payStore.num * payStore.price).toFixed(2) }}</span>
               </p>
             </div>

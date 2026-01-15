@@ -5,8 +5,8 @@
       <li
         v-for="(item, index) in paymethods"
         :key="index"
-        class="flex-center w-196px px-6px h-68px text-18px text-black333 border rounded-8px mr-16px bg-white cursor-pointer"
-        :class="active === index ? 'border-borderOrange' : 'border-grayE4'"
+        class="flex-center w-196px px-6px h-68px text-18px text-black333 border rounded-12px mr-16px bg-white cursor-pointer transition-all"
+        :class="active === index ? 'border-primary border-2 bg-primary-50' : 'border-grayE4 hover:border-primary-300'"
         @click="payChange(index, item)"
       >
         <img :src="VITE_PREFIXURL + item.icon" alt="" />
@@ -32,7 +32,7 @@
       <div v-else></div>
       <div class="flex-center">
         <p class="text-14px text-black666 mt-6px">订单价格</p>
-        <p class="text-redF35 text-24px font-bold ml-16px mr-16px">
+        <p class="text-primary text-24px font-bold ml-16px mr-16px">
           ￥<span class="text-32px">{{ totalPrice }}</span>
         </p>
         <p
@@ -46,7 +46,7 @@
     </div>
     <div class="flex justify-end py-12px">
       <img :src="`${checkedIcon[Number(checked)]}`" alt="" class="w-16px h-16px mr-8px" @click="checked = !checked" />
-      <p class="text-14px text-black333 cursor-pointer" @click="toPolicy">请先阅读<span class="text-blue">《达龙云手机充值服务协议》</span></p>
+      <p class="text-14px text-black333 cursor-pointer" @click="toPolicy">请先阅读<span class="text-primary hover:text-primary-dark transition-colors">《神龙云手机充值服务协议》</span></p>
     </div>
   </div>
   <PayDialog ref="payDialogRef" :from-page="props.fromPage" :dialog-data="dialogData" @pay="confirmPay" />
@@ -159,6 +159,12 @@ defineExpose({
 </script>
 <style lang="scss" scoped>
 .pay-btn {
-  background: linear-gradient(270deg, #ff6262 0%, #ff8400 100%);
+  background: linear-gradient(135deg, #C94A4A 0%, #E87070 100%);
+  box-shadow: 0 4px 12px rgba(201, 74, 74, 0.3);
+  transition: all 0.3s ease;
+  &:hover {
+    background: linear-gradient(135deg, #A53A3A 0%, #C94A4A 100%);
+    box-shadow: 0 6px 16px rgba(201, 74, 74, 0.4);
+  }
 }
 </style>

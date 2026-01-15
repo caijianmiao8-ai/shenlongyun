@@ -1,16 +1,15 @@
 <template>
   <div
-    class="w-196px h-140px border border-grayE4 rounded-8px pt-18px pb-12px flex-between flex-col items-center relative mr-16px flex-shrink-0 cursor-pointer"
+    class="goods-item w-196px h-140px border border-grayE4 rounded-12px pt-18px pb-12px flex-between flex-col items-center relative mr-16px flex-shrink-0 cursor-pointer transition-all hover:border-primary hover:shadow-md"
   >
-    <p class="text-18px">
+    <p class="text-18px text-black333">
       <span class="font-bold mr-4px">{{ good.goods_name }}</span>
       {{ good.goods_time }}{{ getGoodsUnit(good.goods_unit) }}
     </p>
     <p class="text-12px text-black666">{{ good.goods_desc }}</p>
-    <p class="text-28px text-yellow font-semibold">{{ good.unit }}{{ good.price }}</p>
+    <p class="text-28px text-primary font-semibold">{{ good.unit }}{{ good.price }}</p>
     <p class="text-12px text-black666">
       {{ good.unit }}
-      <!-- {{ (good.price / good.goods_time).toFixed(2) }}/{{ getGoodsUnit(good.goods_unit) }} -->
       {{ good.price_desc }}
       <span class="text-black999 line-through ml-10px">{{ good.unit }} {{ good.original_price }}</span>
     </p>
